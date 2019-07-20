@@ -1,0 +1,22 @@
+.card {
+  padding: 32px 12px;
+  border: 1px solid #BC828A;
+  width: 30%;
+}
+
+
+.venue-item.over {
+  border: 1px solid #BC828A;
+}
+
+.venue-item {
+  border: 1px solid transparent;
+}
+
+.venue-item:hover {
+  border: 1px solid #BC828A;
+}
+
+.full-width{
+  border-color: #D7A477;
+}

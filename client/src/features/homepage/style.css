@@ -1,0 +1,78 @@
+.full-width {
+  width: 100% !important;
+  /* background-color: #FCC1B0; */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: #EDEDED;
+}
+
+.flex-box {
+  width: 100%;
+  align-self: center;
+}
+
+.border-primary {
+  width: 310px; 
+}
+
+.jumbotron {
+  background-image: url("https://www.nerdwallet.com/assets/blog/wp-content/uploads/2017/06/how-much-does-a-wedding-cost.jpg");
+  background-size: cover;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  height: 350px;
+}
+
+a {
+  color: rgba(0,0,0,.5);
+}
+
+p {
+  color: rgba(0,0,0,.5);
+}
+
+h5 {
+  color: rgba(0,0,0,.5);
+}
+
+.page-footer {
+  background-color: rgba(156, 92, 124, 0.404);
+  background-color: #F8F9FA
+}
+
+/* .navbar-expand-lg navbar-light bg-light {
+  background-color: #BC828A;
+
+} */
+
+/* .navbar {
+  background-color: pink;
+} */
+
+
+/* $color1: hsla(144%, 15%, 87%, 1);
+$color2: hsla(0%, 0%, 100%, 1);
+$color3: hsla(349%, 100%, 90%, 1);
+$color4: hsla(351%, 77%, 82%, 1);
+$color5: hsla(343%, 13%, 56%, 1);
+
+/* RGB */
+/* $color1: rgba(216, 226, 220, 1);
+$color2: rgba(255, 255, 255, 1);
+$color3: rgba(255, 202, 212, 1);
+$color4: rgba(244, 172, 183, 1);
+$color5: rgba(157, 129, 137, 1);
+
+$color1: hsla(163%, 21%, 26%, 1);
+$color2: hsla(195%, 15%, 45%, 1);
+$color3: hsla(197%, 24%, 57%, 1);
+$color4: hsla(171%, 60%, 77%, 1);
+$color5: hsla(151%, 72%, 53%, 1); */
+
+/* RGB */
+/* $color1: rgba(53, 82, 74, 1);
+$color2: rgba(98, 124, 133, 1);
+$color3: rgba(119, 156, 171, 1);
+$color4: rgba(162, 232, 221, 1);
+$color5: rgba(50, 222, 138, 1);
+ */ 
