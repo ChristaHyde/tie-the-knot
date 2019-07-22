@@ -12,8 +12,7 @@ async function getTasks(userId) {
 
 async function updateVenue(id, updateData) {
   try {
-    const url = '//localhost:3001/api/venues/' + id;
-    const result = await putData(url, updateData);
+    const result = await putData(`api/venues/${id}`, updateData);
     console.log('finished updateVenue:', result);
     return result;
   }
