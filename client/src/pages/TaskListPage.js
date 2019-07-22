@@ -59,8 +59,8 @@ export default class TaskListPage extends Component {
         "loading..." ||
         tasks.map(task => (
           <Flexbox key={task._id}>
-            {task.name}
-            <Form.Check inline id={task._id} type="checkbox" label="Check me out"
+
+            <Form.Check inline id={task._id} type="checkbox" label={task.name}
               checked={!!task.checked}
               onChange={this.handleChange} />
 
