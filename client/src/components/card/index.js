@@ -10,7 +10,7 @@ async function saveVenue(venueData) {
   // TODO: add proper userId
   venueData.userId = '0';
   try {
-    const result = await postData('//localhost:3001/api/venues', venueData);
+    const result = await postData('api/venues', venueData);
     console.log('finished saveVenue:', result);
     return true;
   }

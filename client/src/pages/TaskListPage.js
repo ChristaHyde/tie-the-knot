@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container'
 
 
 async function getTasks(userId) {
-  const res = await fetch(`//localhost:3001/api/venues/${userId}`);
+  const res = await fetch(`api/venues/${userId}`);
   return await res.json();
 }
 
