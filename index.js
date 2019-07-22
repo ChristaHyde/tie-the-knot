@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 
 const mongoose = require("mongoose");
 
@@ -17,11 +18,18 @@ app.use(function (req, res, next) {
   next();
 });
 // Serve up static assets (usually on heroku)
+
 if (process.env.NODE_ENV === "production") {
+  console.log('PRODUCTION MODE!')
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
+// Add api routes
 app.use(routes);
+
+app.all("*", function (req, res, next) {
+  if (/^\/api/.test(req.url)) return res.next();
+  res.sendFile(path.resolve('client', 'build', 'index.html'))
+})
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tietheknot");
