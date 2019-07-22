@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
-import { putData } from '../util/fetch-util';
+import { putData, getData } from '../util/fetch-util';
 import Flexbox from 'flexbox-react';
 import { Jumbotron } from 'react-bootstrap';
 import './style.css';
 import Container from 'react-bootstrap/Container'
 
-
-
-
 async function getTasks(userId) {
-  const res = await fetch(`api/venues/${userId}`);
-  return await res.json();
+  return await getData(`api/venues/${userId}`);
 }
 
 async function updateVenue(id, updateData) {
