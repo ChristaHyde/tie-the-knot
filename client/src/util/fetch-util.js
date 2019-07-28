@@ -11,9 +11,9 @@ export function putData(url, data = {}) {
   return sendData('PUT', url, data);
 }
 
-function sendData(method, url, data) {
+function sendData(method, path, data) {
   // Default options are marked with *
-  return fetch(`//${document.location.host}/${url}`, {
+  return fetch(`//${document.location.host}/${path}`, {
     method: method, // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, cors, *same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

@@ -5,10 +5,14 @@ import Flexbox from 'flexbox-react';
 import { Jumbotron } from 'react-bootstrap';
 import './style.css';
 import Container from 'react-bootstrap/Container'
+import { getVenuePhotos } from '../foursquare';
+import { Card, Button } from 'react-bootstrap';
 
 async function getTasks(userId) {
   return await getData(`api/venues/${userId}`);
 }
+
+
 
 async function updateVenue(id, updateData) {
   try {
@@ -32,6 +36,11 @@ export default class TaskListPage extends Component {
   async loadData() {
     const tasks = await getTasks("0"); // TODO: add proper userId!
     this.setState({ tasks });
+
+    const photoUrls = await Promise.all(
+      tasks.map(task => (getVenuePhotos({ venue_id: task.venueId })))
+    );
+    this.setState({ photoUrls });
   }
 
   handleChange = async (event) => {
@@ -40,6 +49,7 @@ export default class TaskListPage extends Component {
     await updateVenue(id, updateData);
     this.loadData();
   }
+
 
   render() {
     var tasks = this.state.tasks;
@@ -50,22 +60,35 @@ export default class TaskListPage extends Component {
           Task List ({tasks && tasks.length})
       </h1>
       </Jumbotron>
-      <div>{!tasks &&
+      <Flexbox flexWrap="wrap" justifyContent='space-between'>{!tasks &&
         "loading..." ||
-        tasks.map(task => (
-          <Flexbox key={task._id}>
+        tasks.map((task, i) => {
+          const allPhotoUrls = this.state.photoUrls || [];
+          const photoUrls = allPhotoUrls[i] || [];
+          const photoUrl = photoUrls[0]
+          return (<Flexbox flexGrow="0" style={{ maxWidth: '20rem' }} key={task._id}>
 
-            <Form.Check inline id={task._id} type="checkbox" label={task.name}
-              checked={!!task.checked}
-              onChange={this.handleChange} />
+            <Card style={{ width: '100%' }} >
+              <Card.Img variant="top" src={photoUrl} />
+              <Card.Body>
+                <Card.Title>{task.name}</Card.Title>
+                <Card.Text>
+                  <Form.Check inline id={task._id} type="checkbox"
+                    label={"Done!"}
+                    checked={!!task.checked}
+                    onChange={this.handleChange} />
 
-          </Flexbox>
-        ))
-      }</div>
+                </Card.Text>
+                {/* <Button variant="primary">Go somewhere</Button> */}
+              </Card.Body>
+            </Card>
+
+
+
+          </Flexbox>);
+        })
+      }</Flexbox>
     </Container>);
 
   }
 }
-
-
-

@@ -18,7 +18,7 @@ module.exports = function (app) {
   });
 
 
-  // Update a new venue
+  // Update an existing venue
   app.put("/api/venues/:id", async function (req, res) {
     const { id } = req.params;
     const selector = { _id: id };

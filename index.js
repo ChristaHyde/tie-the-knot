@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3001;
 
 const routes = require("./src/routes");
 
+// little fix for nodemon not exiting properly: https://github.com/remy/nodemon/issues/1247
+process.on('SIGINT', () => {
+  console.log('do SIGINT');
+  process.exit();
+});
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
