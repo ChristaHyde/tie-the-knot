@@ -14,7 +14,11 @@ module.exports = function (app) {
   app.post("/api/venues", function (req, res) {
     Venue.create(req.body).then(function (venue) {
       res.json(venue);
-    });
+    })
+      .catch((err) => {
+        console.error(err.stack || err);
+        res.status(500).json({ error: 'could not save data' });
+      });
   });
 
 
